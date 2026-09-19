@@ -1,0 +1,319 @@
+
+  :root {
+    --bg: #FBF6EC;
+    --bg-panel: #FFFFFF;
+    --ink: #2B2117;
+    --ink-soft: #6B5E4F;
+    --olive: #4B5A32;
+    --olive-dark: #38431F;
+    --mustard: #D9A441;
+    --mustard-dark: #B9852A;
+    --line: #E3D8C2;
+    --error: #A6402D;
+    --radius: 4px;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #1E1A14;
+      --bg-panel: #2A241C;
+      --ink: #F1E9D8;
+      --ink-soft: #B9AD97;
+      --olive: #8DA45E;
+      --olive-dark: #A9C17C;
+      --mustard: #E6B458;
+      --mustard-dark: #F0C878;
+      --line: #43392A;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #1E1A14;
+    --bg-panel: #2A241C;
+    --ink: #F1E9D8;
+    --ink-soft: #B9AD97;
+    --olive: #8DA45E;
+    --olive-dark: #A9C17C;
+    --mustard: #E6B458;
+    --mustard-dark: #F0C878;
+    --line: #43392A;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Karla', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .eyebrow-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .kicker {
+    font-size: 13px;
+    color: var(--olive);
+    font-weight: 700;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 4px 0 6px;
+  }
+
+  .sub {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0 0 28px;
+    max-width: 40ch;
+  }
+
+  .dish-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .dish-emoji {
+    font-size: 34px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .dish-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 2px;
+  }
+
+  .dish-price {
+    color: var(--olive-dark);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  form {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field:last-of-type {
+    margin-bottom: 0;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .hint {
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 12px;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+
+  input::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.6;
+  }
+
+  input:focus-visible {
+    border-color: var(--olive);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--olive) 20%, transparent);
+  }
+
+  input[aria-invalid="true"] {
+    border-color: var(--error);
+  }
+
+  /* Grupos de proteína / acompanhamentos */
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .option-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .option-item:has(input:checked) {
+    border-color: var(--olive);
+    background: color-mix(in srgb, var(--olive) 10%, var(--bg-panel));
+  }
+
+  .option-item input {
+    accent-color: var(--olive);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .error-msg {
+    color: var(--error);
+    font-size: 12.5px;
+    margin-top: 6px;
+    display: none;
+  }
+
+  .error-msg.show {
+    display: block;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 26px;
+    padding: 15px;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFF9EC;
+    background: var(--olive);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.05s ease;
+  }
+
+  button:hover {
+    background: var(--olive-dark);
+  }
+
+  button:active {
+    transform: scale(0.99);
+  }
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .fine-print {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+
+  /* Confirmation state */
+  .confirm {
+    display: none;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    text-align: center;
+  }
+
+  .confirm.show {
+    display: block;
+  }
+
+  form.hide {
+    display: none;
+  }
+
+  .confirm-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--mustard);
+    color: var(--olive-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 18px;
+  }
+
+  .confirm h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+
+  .confirm p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin: 0 0 4px;
+    line-height: 1.5;
+  }
+
+  .confirm .detail {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .confirm button.secondary {
+    margin-top: 24px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .confirm button.secondary:hover {
+    background: var(--bg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }

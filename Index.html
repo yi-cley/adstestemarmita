@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peça já — Marmitaria</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow-row">
+    <span class="kicker">Marmitaria</span>
+  </div>
+  <h1>Seu almoço chega quentinho</h1>
+  <p class="sub">Confirme seus dados e a gente entra em contato para combinar a entrega.</p>
+
+  <div class="dish-card">
+    <div class="dish-emoji">🍲</div>
+    <div>
+      <p class="dish-name">Marmita do dia — Feijoada leve</p>
+      <p class="dish-price">R$ 24,90</p>
+    </div>
+  </div>
+
+  <form id="orderForm" novalidate>
+
+    <div class="field">
+      <label>Escolha a proteína</label>
+      <div class="option-group">
+        <label class="option-item">
+          <input type="radio" name="proteina" value="Carne">
+          <span>Carne</span>
+        </label>
+        <label class="option-item">
+          <input type="radio" name="proteina" value="Frango">
+          <span>Frango</span>
+        </label>
+        <label class="option-item">
+          <input type="radio" name="proteina" value="Peixe">
+          <span>Peixe</span>
+        </label>
+      </div>
+      <p class="error-msg" id="erro-proteina">Escolha uma proteína.</p>
+    </div>
+
+    <div class="field">
+      <label>Acompanha <span class="hint">(marque quantos quiser)</span></label>
+      <div class="option-group">
+        <label class="option-item">
+          <input type="checkbox" name="acompanhamento" value="Com batata">
+          <span>Com batata</span>
+        </label>
+        <label class="option-item">
+          <input type="checkbox" name="acompanhamento" value="Com salada">
+          <span>Com salada</span>
+        </label>
+        <label class="option-item">
+          <input type="checkbox" name="acompanhamento" value="Com refrigerante">
+          <span>Com refrigerante</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar" autocomplete="name">
+      <p class="error-msg" id="erro-nome">Digite seu nome.</p>
+    </div>
+
+    <div class="field">
+      <label for="telefone">Telefone <span class="hint">com DDD</span></label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric">
+      <p class="error-msg" id="erro-telefone">Digite um telefone válido com DDD.</p>
+    </div>
+
+    <div class="field">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email">
+      <p class="error-msg" id="erro-email">Digite um e-mail válido.</p>
+    </div>
+
+    <div class="field">
+      <label for="endereco">Endereço de entrega</label>
+      <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro" autocomplete="street-address">
+      <p class="error-msg" id="erro-endereco">Digite o endereço de entrega.</p>
+    </div>
+
+    <div class="field">
+      <label for="data">Data</label>
+      <input type="date" id="data" name="data" autocomplete="off">
+      <p class="error-msg" id="erro-data">Selecione uma data válida.</p>
+    </div>
+
+    <button type="submit">Confirmar pedido</button>
+    <p class="fine-print">Sem cobrança agora — só confirmamos os detalhes por telefone.</p>
+  </form>
+
+  <div class="confirm" id="confirmBox">
+    <div class="confirm-badge">✓</div>
+    <h2>Pedido recebido!</h2>
+    <p>Vamos confirmar com <span class="detail" id="resumoNome"></span> pelo número <span class="detail" id="resumoTelefone"></span>.</p>
+    <p>Entrega em <span class="detail" id="resumoEndereco"></span>.</p>
+    <p>Um e-mail de confirmação também foi enviado para <span class="detail" id="resumoEmail"></span>.</p>
+    <p class="fine-print">Abrimos o WhatsApp numa nova aba para você confirmar por lá também.</p>
+    <button class="secondary" id="novoPedido" type="button">Fazer outro pedido</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
